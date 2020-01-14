@@ -8,6 +8,8 @@ import { MessagesComponent } from './messages/messages.component';
 import { FIREBASE_CONFIG } from 'SRC/environments/environment';
 import * as firebase from 'firebase/app';
 import 'firebase/analytics';
+import { AppRoutingModule } from './app-routing.module';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 firebase.initializeApp(FIREBASE_CONFIG);
 firebase.analytics();
@@ -17,11 +19,13 @@ firebase.analytics();
     AppComponent,
     HeroesComponent,
     HeroDetailComponent,
-    MessagesComponent
+    MessagesComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

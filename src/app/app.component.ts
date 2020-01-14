@@ -9,11 +9,17 @@ import 'firebase/firestore';
 })
 export class AppComponent {
   title = 'Tour of Heroes';
-  db = firebase.firestore();
+  // db = firebase.firestore();
 
-  getRecords() {
-    this.db.collection('tests').onSnapshot((tests) => {
-      console.log(tests.docs);
-    })
-  }
+  // constructor() {
+  //   this.getRecords();
+  // }
+
+  // getRecords() {
+  //   this.db.collection('heroes').onSnapshot((heroes) => {
+  //     heroes.docs.forEach(element => {
+  //       console.log(element.data());
+  //     });
+  //   });
+  // }
 }
