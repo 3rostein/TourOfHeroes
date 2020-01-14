@@ -13,6 +13,7 @@
   background: #eeeeee;
   max-width: 400px;
   width: 95vw;
+  padding: 1em;
   margin-bottom: 20px;
   transition: all 0.2s ease;
 }
