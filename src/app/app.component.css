@@ -1,1 +1,23 @@
+h1 {
+  text-align: center;
+}
 
+nav {
+  display: flex;
+  justify-content: flex-start;
+  background: #eee;
+  padding: 1em;
+}
+
+nav>a {
+  padding: 1em;
+  background: #369;
+  color: white;
+  text-decoration: none;
+  margin: 1em;
+}
+
+nav>a:hover {
+  cursor: pointer;
+  background: dodgerblue;
+}

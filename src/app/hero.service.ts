@@ -25,13 +25,11 @@ export class HeroService {
     const docData = {
       name: addName,
     };
-
     if (addName === '' || addName === null) {
       console.log('Please enter a value');
     } else {
       this.db.collection('heroes').doc().set(docData);
     }
-
   }
 
   getHeroes(): Observable<Hero[]> {
@@ -44,9 +42,7 @@ export class HeroService {
         heroArr.push(hero);
       });
     });
-
     return of(heroArr);
-
   }
 
   getLimitedHeroes(limit: number): Observable<Hero[]> {
@@ -58,7 +54,6 @@ export class HeroService {
         heroArr.push(hero);
       });
     });
-
     return of(heroArr);
   }
 
