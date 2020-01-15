@@ -49,6 +49,19 @@ export class HeroService {
 
   }
 
+  getLimitedHeroes(limit: number): Observable<Hero[]> {
+    const heroArr: Hero[] = [];
+
+    this.docRef.limit(limit).onSnapshot((heroes) => {
+      heroes.docs.forEach(element => {
+        let hero: Hero = { id: element.id, name: element.get('name') };
+        heroArr.push(hero);
+      });
+    });
+
+    return of(heroArr);
+  }
+
   async getHero(id: string): Promise<Observable<Hero>> {
     this.messageService.add(`HeroService: fetched hero id=${id}`);
 
