@@ -2,19 +2,20 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
 }
 
 .heroes>li {
   list-style: none;
-  margin: 0px;
   box-sizing: border-box;
   display: flex;
   align-items: center;
   background: #eeeeee;
-  max-width: 400px;
-  width: 95vw;
   padding: 1em;
-  margin-bottom: 20px;
+  width: calc((100%/4) - 2em);
+  margin: 1em;
   transition: all 0.2s ease;
 }
 

@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import * as firebase from 'firebase/app';
 import 'firebase/analytics';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AddHeroComponent } from './add-hero/add-hero.component';
 
 firebase.initializeApp(FIREBASE_CONFIG);
 firebase.analytics();
@@ -20,7 +21,8 @@ firebase.analytics();
     HeroesComponent,
     HeroDetailComponent,
     MessagesComponent,
-    DashboardComponent
+    DashboardComponent,
+    AddHeroComponent
   ],
   imports: [
     BrowserModule,

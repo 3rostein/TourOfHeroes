@@ -22,12 +22,13 @@ export class HeroService {
 
 
   addHero(addName: string): void {
-    const docData = {
-      name: addName,
-    };
     if (addName === '' || addName === null) {
       console.log('Please enter a value');
     } else {
+      const docData = {
+        name: addName,
+      };
+      this.messageService.add(`Hero Service: added ${docData.name}`);
       this.db.collection('heroes').doc().set(docData);
     }
   }
