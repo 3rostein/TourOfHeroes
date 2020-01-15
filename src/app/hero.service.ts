@@ -5,39 +5,68 @@ import { Hero } from './hero';
 import { MessageService } from './message.service';
 import * as firebase from 'firebase/app';
 import 'firebase/firestore';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class HeroService {
   db = firebase.firestore();
 
-  constructor(private messageService: MessageService) { }
+  docRef = this.db.collection('heroes');
+
+  constructor(private messageService: MessageService) {
+  }
 
 
 
+  addHero(addName: string): void {
+    const docData = {
+      name: addName,
+    };
 
-  getHero(id: any): void {
-    // this.messageService.add(`HeroService: fetched hero id=${id}`);
-    this.db.collection('heroes').doc(id).onSnapshot(heroes => {
-      console.log(heroes);
-    });
+    if (addName === '' || addName === null) {
+      console.log('Please enter a value');
+    } else {
+      this.db.collection('heroes').doc().set(docData);
+    }
+
   }
 
   getHeroes(): Observable<Hero[]> {
-    let heroArr: Hero[] = [];
-    this.db.collection('heroes').onSnapshot((heroes) => {
+    const heroArr: Hero[] = [];
+
+    this.docRef.onSnapshot((heroes) => {
       heroes.docs.forEach(element => {
-        let heroId: string = element.id;
-        let heroName: string = element.get('name');
-        let hero: Hero = { id: heroId, name: heroName };
+        let hero: Hero = { id: element.id, name: element.get('name') };
 
         heroArr.push(hero);
       });
     });
 
     return of(heroArr);
+
   }
+
+  async getHero(id: string): Promise<Observable<Hero>> {
+    this.messageService.add(`HeroService: fetched hero id=${id}`);
+
+    let hero: Hero = await this.db.collection('heroes').doc(id).get().then((doc) => {
+
+      let newHero: Hero = {
+        id: doc.id,
+        name: doc.get('name')
+      };
+      return newHero;
+    });
+
+    return of(hero);
+
+  }
+
+
+
 
 
 }

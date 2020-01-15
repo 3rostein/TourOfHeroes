@@ -5,10 +5,10 @@ import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { MessagesComponent } from './messages/messages.component';
-import { FIREBASE_CONFIG } from 'SRC/environments/environment';
+import { FIREBASE_CONFIG, environment } from 'SRC/environments/environment';
+import { AppRoutingModule } from './app-routing.module';
 import * as firebase from 'firebase/app';
 import 'firebase/analytics';
-import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 firebase.initializeApp(FIREBASE_CONFIG);
@@ -25,7 +25,8 @@ firebase.analytics();
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
