@@ -54,7 +54,7 @@ export class HeroService {
 
     let hero: Hero = await this.db.collection('heroes').doc(id).get().then((doc) => {
 
-      let newHero: Hero = {
+      const newHero: Hero = {
         id: doc.id,
         name: doc.get('name')
       };
@@ -63,6 +63,14 @@ export class HeroService {
 
     return of(hero);
 
+  }
+
+  updateHero(id: string, newName: string): void {
+    this.messageService.add(`Hero Service: updated hero id: ${id} name: ${name}`);
+
+    this.db.collection('heroes').doc(id).update({
+      name: newName
+    });
   }
 
 
