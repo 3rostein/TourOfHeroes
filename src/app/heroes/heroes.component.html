@@ -1,7 +1,11 @@
 <h2>My Heroes</h2>
 <ul class="heroes">
-  <li *ngFor="let hero of heroes" routerLink="/detail/{{hero.id}}">
-    {{hero.name}}
+  <li *ngFor="let hero of heroes">
+    <a routerLink="/detail/{{hero.id}}">
+      {{hero.name}}
+    </a>
+
+    <button class="deleteHero" (click)="deleteHero(hero.id)">x</button>
   </li>
 </ul>
 <hr>
