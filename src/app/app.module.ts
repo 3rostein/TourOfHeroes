@@ -11,6 +11,7 @@ import * as firebase from 'firebase/app';
 import 'firebase/analytics';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddHeroComponent } from './add-hero/add-hero.component';
+import { HeroSearchComponent } from './hero-search/hero-search.component';
 
 firebase.initializeApp(FIREBASE_CONFIG);
 firebase.analytics();
@@ -22,7 +23,8 @@ firebase.analytics();
     HeroDetailComponent,
     MessagesComponent,
     DashboardComponent,
-    AddHeroComponent
+    AddHeroComponent,
+    HeroSearchComponent
   ],
   imports: [
     BrowserModule,

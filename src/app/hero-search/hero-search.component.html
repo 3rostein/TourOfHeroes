@@ -1,0 +1,11 @@
+<div class="search-container">
+  <h3>Hero Search</h3>
+
+  <input #searchBox id="searchBox" (input)="search(searchBox.value)">
+</div>
+
+<div class="search-result">
+  <ul class="search-list">
+    <li class="search-item" *ngFor="let hero of heroes"></li>
+  </ul>
+</div>

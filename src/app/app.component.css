@@ -5,8 +5,9 @@ h1 {
 nav {
   display: flex;
   justify-content: flex-start;
-  background: #eee;
-  padding: 1em;
+  max-width: 800px;
+  width: 95vw;
+  margin: 0 auto;
 }
 
 nav>a {

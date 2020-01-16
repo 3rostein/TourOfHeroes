@@ -102,4 +102,21 @@ export class HeroService {
       .doc(id)
       .delete();
   }
+
+  searchHeroes(name: string): Observable<Hero[]> {
+    let heroArr: Hero[] = [];
+
+    this.db
+      .collection("heroes")
+      .where("name", "==", name)
+      .onSnapshot(query => {
+        query.docs.forEach(doc => {
+          let hero: Hero = { id: doc.id, name: doc.get("name") };
+
+          heroArr.push(hero);
+        });
+      });
+
+    return of(heroArr);
+  }
 }
