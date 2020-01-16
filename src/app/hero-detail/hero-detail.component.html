@@ -5,9 +5,11 @@
     {{hero.id}}
   </div>
   <div>
-    <label>name: {{ hero.name }}</label>
+    <label>name: </label>
+    <input [(ngModel)]="hero.name" placeholder="name" />
 
   </div>
 </div>
 
+<button (click)="updateHero(hero.name)">Update Hero</button>
 <button (click)="goBack()">Back</button>

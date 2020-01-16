@@ -85,7 +85,7 @@ export class HeroService {
 
   updateHero(id: string, newName: string): void {
     this.messageService.add(
-      `Hero Service: updated hero id: ${id} name: ${name}`
+      `Hero Service: updated hero id: ${id} to name: ${newName}`
     );
 
     this.db
